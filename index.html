@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1" />
+		
+		<title>裴纬华-MyPage</title>
+		<link href="css/style.css" rel="stylesheet" />
+		<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+		<script>
+			var f = true;
+			$(function() {
+
+				$(".boxhome").click(function() {
+					$("html, body").animate({
+						scrollTop: $("#home").offset().top
+					}, {
+						duration: 500,
+						easing: "swing"
+					});
+					return false;
+				});
+				$(".boxabout").click(function() {
+					$("html, body").animate({
+						scrollTop: $("#about").offset().top
+					}, {
+						duration: 500,
+						easing: "swing"
+					});
+					return false;
+				});
+				$(".boxnews").click(function() {
+					$("html, body").animate({
+						scrollTop: $("#new").offset().top
+					}, {
+						duration: 500,
+						easing: "swing"
+					});
+					return false;
+				});
+				$(".boxproject").click(function() {
+					$("html, body").animate({
+						scrollTop: $("#Project").offset().top
+					}, {
+						duration: 500,
+						easing: "swing"
+					});
+					return false;
+				});
+				$(".boxsector").click(function() {
+					$("html, body").animate({
+						scrollTop: $("#sector").offset().top
+					}, {
+						duration: 500,
+						easing: "swing"
+					});
+					return false;
+				});
+				$(".boxtree").click(function() {
+					$("html, body").animate({
+						scrollTop: $("#tree").offset().top
+					}, {
+						duration: 500,
+						easing: "swing"
+					});
+					return false;
+				});
+				$(".boxfooter").click(function() {
+					$("html, body").animate({
+						scrollTop: $("#footer").offset().top
+					}, {
+						duration: 500,
+						easing: "swing"
+					});
+					return false;
+				});
+				$(".boxhome").hover(function() {
+					$('#bg').css({
+						"left": "246" + "px"
+					});
+					$('#ul-list').css({
+						"left": "0" + "px"
+					});
+				});
+				$(".boxabout").hover(function() {
+					$('#bg').css({
+						"left": "370" + "px"
+					});
+					$('#ul-list').css({
+						"left": "-124" + "px"
+					});
+				});
+				$(".boxnews").hover(function() {
+
+					$('#bg').css({
+						"left": "494" + "px"
+					});
+					$('#ul-list').css({
+						"left": "-248" + "px"
+					});
+				});
+				$(".boxproject").hover(function() {
+					$('#bg').css({
+						"left": "618" + "px"
+					});
+					$('#ul-list').css({
+						"left": "-372" + "px"
+					});
+				});
+				$(".boxsector").hover(function() {
+
+					$('#bg').css({
+						"left": "742" + "px"
+					});
+					$('#ul-list').css({
+						"left": "-496" + "px"
+					});
+
+				});
+				$(".boxtree").hover(function() {
+					$('#bg').css({
+						"left": "866" + "px"
+					});
+					$('#ul-list').css({
+						"left": "-620" + "px"
+					});
+				});
+				$(".boxfooter").hover(function() {
+					$('#bg').css({
+						"left": "990" + "px"
+					});
+					$('#ul-list').css({
+						"left": "-744" + "px"
+					});
+				});
+
+				$(window).on('scroll', function(a) {
+
+					var hand_up = $(document).scrollTop() - 5;
+					var com_up = $(document).scrollTop() - 1100;
+					var ball_up = $(document).scrollTop() - 2200;
+					var bulb1 = $(document).scrollTop() - 3300;
+					var pop1 = $(document).scrollTop() - 4400;
+					var house = $(document).scrollTop() - 5500;
+
+					if($('.handImg')) {
+
+						$('.handImg').css({
+							"backgroundPosition": "50% " + hand_up + "px"
+						});
+					}
+					if($('.compasses')) {
+
+						$('.compasses').css({
+							"backgroundPosition": "50% " + com_up + "px"
+						});
+					}
+					if($('div.bulb1')) {
+
+						$('div.bulb1').css({
+							"backgroundPosition": " 90%" + (bulb1 - 10) + "px"
+						});
+						$('div.bulbl2').css({
+							"backgroundPosition": "20%" + (bulb1 + 10) + "px"
+						})
+
+					}
+					if($('div.pop')) {
+
+						$('div.pop').css({
+							"backgroundPosition": " 90%" + (pop1) + "px"
+						});
+						$('div.clock').css({
+							"backgroundPosition": "20%" + (pop1) + "px"
+						})
+
+					}
+					if($('div.Horse')) {
+
+						$('div.Horse').css({
+							"backgroundPosition": " 90%" + house + "px"
+						});
+
+					}
+
+					if(f) {
+						change($(document).scrollTop());
+
+					}
+
+				})
+
+				function change(s) {
+
+					//alert(s);
+					if(s >= 1030 && s < 2120) {
+
+						$('#bg').css({
+							"left": "370" + "px"
+						});
+						$('#ul-list').css({
+							"left": "-124" + "px"
+						});
+
+					} else if(s >= 0 && s < 1030) {
+
+						$('#bg').css({
+							"left": "246" + "px"
+						});
+						$('#ul-list').css({
+							"left": "0" + "px"
+						});
+
+					} else if(s >= 2120 && s < 3180) {
+
+						$('#bg').css({
+							"left": "494" + "px"
+						});
+						$('#ul-list').css({
+							"left": "-248" + "px"
+						});
+
+					} else if(s >= 3180 && s < 4290) {
+
+						$('#bg').css({
+							"left": "618" + "px"
+						});
+						$('#ul-list').css({
+							"left": "-372" + "px"
+						});
+
+					} else if(s >= 4290 && s < 5200) {
+
+						$('#bg').css({
+							"left": "742" + "px"
+						});
+						$('#ul-list').css({
+							"left": "-496" + "px"
+						});
+
+					} else if(s >= 5200 && s < 6420) {
+
+						$('#bg').css({
+							"left": "866" + "px"
+						});
+						$('#ul-list').css({
+							"left": "-620" + "px"
+						});
+
+					} else if(s >= 6420 && s < 7700) {
+
+						$('#bg').css({
+							"left": "990" + "px"
+						});
+						$('#ul-list').css({
+							"left": "-744" + "px"
+						});
+
+					}
+
+				}
+
+			})
+		</script>
+	</head>
+
+	<body>
+		<div id="warp">
+			<div id="nav">
+				<a id="logo" href="index.html"></a>
+				<ul id="menu">
+					<li id="bg">
+						<ul id="ul-list">
+							<li>
+								<a href="index.html">Home</a>
+							</li>
+							<li>
+								<a href="javascript:;" target="_self">About</a>
+							</li>
+							<li>
+								<a href="javascript:;" target="_self">News</a>
+							</li>
+							<li>
+								<a href="javascript:;" target="_self">wroks</a>
+							</li>
+							<li>
+								<a href="javascript:;" target="_self">Photo</a>
+							</li>
+							<li>
+								<a href="javascript:;" target="_self">hof</a>
+							</li>
+							<li>
+								<a href="javascript:;" target="_self">contact</a>
+							</li>
+						</ul>
+					</li>
+
+					<li class="box boxhome">
+						<a href="index.html">Home</a>
+					</li>
+					<li class="box boxabout">
+						<a>About</a>
+					</li>
+					<li class="box boxnews">
+						<a>News</a>
+					</li>
+					<li class="box boxproject">
+						<a>wroks</a>
+					</li>
+					<li class="box boxsector">
+						<a>Photo</a>
+					</li>
+					<li class="box boxtree">
+						<a>hof</a>
+					</li>
+					<li class="box boxfooter">
+						<a>contact</a>
+					</li>
+
+				</ul>
+
+			</div>
+			<!--头部导航结束-->
+			<div id="max-box">
+				<div id="home" style=" background-position:50% 0px">
+					<div class="handImg" style=" background-position:50% 0px"></div>
+					<div class="textImg" style=" background-position:50% 0px"></div>
+					<div class="penImg"></div>
+				</div>
+				<!--首页-->
+				<div id="about" style="background-position:50% 20px">
+					<div class="contents">
+						<div class="aboutRound">
+							<div class="columnSpace">
+								<div class="border">
+									<div class="borderRight">
+										<div class="top"></div>
+									</div>
+									<div class="bordermind">
+										<div class="borderContens">
+											<div class="show">
+												<div class="comptitle_05 ">
+													<em>
+                                                    <span class="extendLink">
+                                                        <a href="index.html#home" target="_self">更多详细+</a>
+                                                    </span>
+                                                
+                                                </em>
+												</div>
+												<div class="dit">
+													<div class="aboutText">
+														裴纬华
+														</br>
+
+														男|22岁|1996年9月2日
+														</br>
+
+														</br>
+
+														</br>
+														对研究Html5+CSS3+JavaScript有浓厚兴趣。
+														</br>
+														精通html5和css3|熟练JavaScript
+														</br>
+														熟练浏览器兼容性调试
+														</br>
+														.......
+													</div>
+												</div>
+											</div>
+											<div class="clearBoth"></div>
+										</div>
+									</div>
+
+								</div>
+
+							</div>
+						</div>
+
+					</div>
+					<div class="balloon" style="background-position:50% 0"></div>
+					<div class="compasses" style="background-position:50% -50px"></div>
+				</div>
+				<div id="about-cont" style="background-position:50% 4px">
+					<div class="contents">
+						<div class="aboutRound">
+							<iframe allowtransparency="true" frameborder="0" height="500" marginheight="0" marginwidth="0" scrolling="no" width="600">#document</iframe>
+							<a class="close_btu" href="#about">关闭 ×</a>
+						</div>
+					</div>
+					<div class="balloon" style="background-position:50% 0"></div>
+					<div class="compasses" style="background-position:50% -19px"></div>
+					<div class="compasses1" style="background-position:50% -4px"></div>
+				</div>
+				<div id="new" style="background-position:50% 0">
+					<div class="contents">
+						<div id="left-news">
+							<iframe allowtransparency="true" frameborder="0" height="650" marginheight="0" marginwidth="0" scrolling="no" src="new.html" width="800">#docuemnt</iframe>
+
+						</div>
+
+					</div>
+				</div>
+				<div id="Project" style=" background-position:50% 23px">
+					<div class="pro_img">
+						<iframe allowtransparency="true" frameborder="0" height="700" marginheight="0" marginwidth="0" scrolling="no" src="Project.html" width="720">#document </iframe>
+					</div>
+					<div class="bulb1" style=" background-position:60% 0px"></div>
+					<div class="bulbl2" style=" background-position:60% -26px"></div>
+				</div>
+				<div id="sector" style=" background-position:50% -17px">
+					<div class="contents">
+						<div class="sector_img">
+							<iframe allowtransparency="true" frameborder="0" height="680" marginheight="0" marginwidth="0" scrolling="no" src="sector.html" width="600"></iframe>
+						</div>
+
+					</div>
+					<div class="pop" style="background-position:50% 84px;"></div>
+					<div class="clock" style=" background-position:50% 0"></div>
+
+				</div>
+				<div id="tree">
+					<div class="contents">
+						<iframe allowtransparency="true" frameborder="0" height="500" marginheight="0" marginwidth="0" scrolling="no" src="three.html" width="500"></iframe>
+					</div>
+					<div class="Horse" style=" background-position:50% 0"></div>
+
+				</div>
+				<div id="footer">
+					<div class="contents">
+						<div id="footer-right">
+							<div class="box1">
+								<div class="box2">
+									<p>
+										<strong>联系方式</strong>
+										<br /> 地址：北京市石景山区首钢工学院
+										<br /> 电话：1521099953
+										<br /> 邮箱：970396358@qq.com
+										</br>
+
+									</p>
+									<p>
+										<a href="#" target="_blank">个人简历</a>
+
+									</p>
+
+								</div>
+
+							</div>
+
+						</div>
+
+					</div>
+
+					<div id="box_feedback">
+						<iframe allowtransparency="true" frameborder="0" height="400" marginheight="0" marginwidth="0" scrolling="no" src="" width="700"></iframe>
+
+					</div>
+					<div class="book" style="background-position:50% 0"></div>
+					<div class="map"></div>
+
+				</div>
+			</div>
+
+		</div>
+	</body>
+
+</html>

@@ -1,0 +1,148 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+	ul,body{ padding:0; margin:0}
+	ul{ width:600px; height:680px; -background:#9F0;}
+	li{ list-style:none; width:198px; height:224px; float:left; border:1px solid #000; border-radius:120px; }
+	li img:hover{background-position:300px 0 ,0 0;}
+	li img {width:198px; height:224px;border:1px solid #000; border-radius:120px;}
+
+
+</style>
+</head>
+
+<body>
+		<ul>
+        	<li><img src="img/sector1.jpg" /></li>
+            <li><img src="img/sector2.jpg" /></li>
+            <li><img src="img/sector3.jpg" /></li>
+            <li><img src="img/sector4.jpg" /></li>
+            <li><img src="img/sector5.jpg" /></li>
+            <li><img src="img/sector6.jpg" /></li>
+            <li><img src="img/sector7.jpg" /></li>
+            <li><img src="img/sector8.jpg" /></li>
+            <li><img src="img/sector9.jpg" /></li>
+        </ul>
+</body>
+	<script src="js/move.js"></script>
+	<script>
+    		var oli=document.getElementsByTagName('li');
+			var arr=[];
+			var izIndex = 2;
+			for(var i=0;i<oli.length;i++){
+				arr.push([oli[i].offsetLeft,oli[i].offsetTop]);
+			};
+			
+			for(var i=0;i<oli.length;i++){
+				oli[i].style.position='absolute';
+				oli[i].style.left=arr[i][0]+'px';
+				oli[i].style.top=arr[i][1]+'px';
+			};
+			for(var i=0;i<oli.length;i++){
+				oli[i].index = i;
+				darg(oli[i])
+			}
+			function darg(obj){
+				var disX=0;
+				var disY=0;
+				obj.onmousedown=function(ev){
+					var ev=ev||window.event;
+					disX=ev.clientX-obj.offsetLeft;
+					disY=ev.clientY-obj.offsetTop;
+					obj.style.zIndex=izIndex++;
+					clearInterval(obj.timer);
+					document.onmousemove=function(ev){
+						var ev=ev||window.event;
+						obj.style.left=ev.clientX-disX+'px';
+						obj.style.top=ev.clientY-disY+'px';
+						var nL = nearLi(obj);
+						
+					};
+					document.onmouseup=function(){
+					
+						document.onmouseup=null;
+						document.onmousemove=null;
+						
+						var nL = nearLi(obj);
+						var tmp = '';
+						
+						
+					if(nL){
+					startMove( nL , { left : arr[obj.index][0] , top : arr[obj.index][1	]} );
+							
+					startMove( obj , { left : arr[nL.index][0] , top : arr[nL.index][1]} );
+							tmp = nL.index;
+							nL.index = obj.index;
+							obj.index = tmp;
+						
+						}
+						else{
+							startMove( obj , { left : arr[obj.index][0] , top : arr[obj.index][                          1]} );
+						}
+						
+					
+					};
+				return false;
+				};
+				
+				
+				
+			}; 
+    
+    function pz(obj1,obj2){
+		var L1 = obj1.offsetLeft;
+		var R1 = obj1.offsetLeft + obj1.offsetWidth;
+		var T1 = obj1.offsetTop;
+		var B1 = obj1.offsetTop + obj1.offsetHeight;
+		
+		var L2 = obj2.offsetLeft;
+		var R2 = obj2.offsetLeft + obj2.offsetWidth;
+		var T2 = obj2.offsetTop;
+		var B2 = obj2.offsetTop + obj2.offsetHeight;
+		
+		if( L1>R2 || R1<L2 || T1>B2 || B1<T2 ){
+			return false;
+		}
+		else{
+			return true;
+		}
+		
+	};
+	function jl(obj1,obj2){
+		var a = obj1.offsetLeft - obj2.offsetLeft;
+		var b = obj1.offsetTop - obj2.offsetTop;
+		
+		return Math.sqrt(a*a + b*b);
+	};
+	function nearLi(obj){
+		
+		var value = 9999;
+		var index = -1;
+		
+		for(var i=0;i<oli.length;i++){
+			if( pz(obj , oli[i]) && obj!=oli[i] ){
+				var c = jl(obj,oli[i]);
+				if( c < value ){
+					value = c;
+					index = i;
+				}
+			}
+		}
+		
+		if( index != -1 ){
+			return oli[index];
+		}
+		else{
+			return false;
+		}
+		
+	}
+    
+    
+    </script>
+
+</html>
